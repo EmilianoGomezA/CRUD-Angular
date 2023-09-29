@@ -1,37 +1,3 @@
-<header class="flex flex-col mb-5 font-principal">
-    <div class="mb-4">
-        <h1 class="font-principal font-black text-red-950 text-5xl my-0 h-fit">softwena</h1>
-        <p class="font-principal font-bold text-red-950 h-fit">La esperanza del pueblo</p>
-    </div>
-    <nav>
-        <ul class="border-b-2 border-gray-300">
-            <div class="w-full flex gap-4 overflow-auto">
-                <li>
-                    <a routerLink="/" class="nav-item relative flex items-center h-8 font-normal px-1 py-2 hover:before:bg-red-950">
-                    <span class="material-symbols-outlined mr-1 text-red-950">home</span>
-                    Home
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/planilla" class="nav-item relative flex items-center h-8 font-normal px-1 py-2 hover:before:bg-red-950">
-                    <span class="material-symbols-outlined mr-1 text-red-950">groups</span>
-                    Planilla
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/productos" class="nav-item relative flex items-center h-8 font-normal px-1 py-2 hover:before:bg-red-950">
-                    <span class="material-symbols-outlined mr-1 text-red-950">location_on</span>
-                    Localidades
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/contacto" class="nav-item relative flex items-center h-8 font-normal px-1 py-2 hover:before:bg-red-950">
-                    <span class="material-symbols-outlined mr-1 text-red-950">mail</span>
-                    Contacto
-                    </a>
-                </li>
-            </div>
-        </ul>
-    </nav>
-</header>
+<app-header></app-header>
 <router-outlet></router-outlet>
+<app-footer></app-footer>

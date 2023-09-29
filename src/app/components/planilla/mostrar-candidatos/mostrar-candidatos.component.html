@@ -1,0 +1,86 @@
+<section class="font-principal py-8 px-7">
+    <h2 class="font-bold text-xl mb-6">Lista de candidatos</h2>
+
+    <div class="flex justify-end pr-6 mb-8">
+        <a routerLink="/planilla/agregar" class="bg-red-950 text-white py-2 px-12 rounded-lg font-semibold transition hover:bg-red-900">Agregar</a>
+    </div>
+
+    <div class="w-full overflow-auto">
+        <table *ngIf="candidatos" class="w-full">
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Puesto</th>
+                <th>Sueldo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        
+            <tr *ngFor="let candidato of candidatos" class="even:bg-slate-200">
+                <td class="grid place-items-center p-2">
+                    <div class="w-32 grid place-items-center">
+                        <img [src]="serverPath + candidato.imagen" [alt]="candidato.nombre" class="w-12 h-12 rounded-md object-cover md:w-16 md:h-16 lg:w-32 lg:h-32">
+                    </div>
+                </td>
+                <td class="text-center">{{ candidato.nombre }} {{ candidato.apellidos }}</td>
+                <td class="text-center">{{ candidato.fechaNacimiento }}</td>
+                <td class="text-center">{{ candidato.puesto }} ({{ candidato.localidad }})</td>
+                <td class="text-center">${{ candidato.sueldo }}.00</td>
+                <td class="text-center">
+                    <a [routerLink]="['/planilla/editar', candidato.idCandidato]" class="bg-yellow-500 p-1 grid place-items-center w-8 rounded-md m-auto">
+                        <span class="material-symbols-outlined text-gray-950">edit</span>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <button (click)="mostrarModalConfirmacion(candidato.idCandidato)" class="bg-red-600 p-1 grid place-items-center w-8 rounded-md m-auto">
+                        <span class="material-symbols-outlined text-gray-950">delete</span>
+                    </button>
+                </td>
+
+                <!-- <div *ngIf="mostrarModalEliminar" class="modal">
+                    <div class="modal-content">
+                        <span class="close" (click)="ocultarModalConfirmacion()">&times;</span>
+                        <p>¿Estás seguro de que deseas eliminar al miembro {{ nombreCandidatoAEliminar }}?</p>
+                        <button (click)="eliminarCandidato()" class="btn-confirmar">Confirmar</button>
+                        <button (click)="ocultarModalConfirmacion()" class="btn-cancelar">Cancelar</button>
+                    </div>
+                </div> -->
+
+                <div *ngIf="mostrarModalEliminar" id="myModal" class="modal fixed inset-0 z-50 overflow-auto flex justify-center items-center animated fadeIn">
+                    <div class="modal-content bg-white p-4 w-1/2 rounded shadow-lg relative">
+                        <!-- Botón para cerrar el modal -->
+                        <button id="close-modal" (click)="ocultarModalConfirmacion()" class="absolute top-0 right-0 mt-2 mr-2 text-gray-600 hover:text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                
+                        <!-- Encabezado del modal -->
+                        <div class="modal-header mb-4">
+                            <h3 class="text-xl font-semibold">Eliminar elemento</h3>
+                        </div>
+                
+                        <!-- Contenido del modal -->
+                        <div class="modal-body">
+                            <p>¿Seguro que desea eliminar al miembro {{ nombreCandidatoAEliminar }}?</p>
+                        </div>
+                
+                        <!-- Acciones del modal -->
+                        <div class="modal-actions mt-4 flex justify-end">
+                            <button (click)="eliminarCandidato()" class="bg-red-950 hover:bg-red-900 text-white font-bold py-2 px-4 rounded mr-2">
+                                Aceptar
+                            </button>
+                            <button (click)="ocultarModalConfirmacion()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="!candidatos">
+        <p>No hay candidatos en el sistema.</p>
+    </div>
+</section>

@@ -6,21 +6,29 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
-import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
-import { EliminarProductoComponent } from './components/eliminar-producto/eliminar-producto.component';
-import { MostrarProductosComponent } from './components/mostrar-productos/mostrar-productos.component';
-import { TuComponenteComponent } from './components/tu-componente/tu-componente.component';
+import { AgregarLocalidadComponent } from './components/localidad/agregar-localidad/agregar-localidad.component';
+import { MostrarLocalidadesComponent } from './components/localidad/mostrar-localidades/mostrar-localidades.component';
+import { AgregarCandidatoComponent } from './components/planilla/agregar-candidato/agregar-candidato.component';
+import { MostrarCandidatosComponent } from './components/planilla/mostrar-candidatos/mostrar-candidatos.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { EditarCandidatoComponent } from './components/planilla/editar-candidato/editar-candidato.component';
+import { EditarLocalidadComponent } from './components/localidad/editar-localidad/editar-localidad.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AgregarProductoComponent,
-    EditarProductoComponent,
-    EliminarProductoComponent,
-    MostrarProductosComponent,
-    TuComponenteComponent
+    AgregarLocalidadComponent,
+    MostrarLocalidadesComponent,
+    AgregarCandidatoComponent,
+    MostrarCandidatosComponent,
+    HeaderComponent,
+    ContactoComponent,
+    EditarCandidatoComponent,
+    EditarLocalidadComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

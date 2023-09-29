@@ -1,0 +1,24 @@
+.nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    transform-origin: center;
+    transform: scaleX(0); /* Inicialmente, la línea está oculta */
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover::before {
+    transform: scaleX(1); /* Mostrar la línea al hacer hover */
+}
+
+.active{
+    background-color: rgb(69 10 10);
+    color: rgb(255, 255, 255);
+}
+
+.active span{
+    color: rgb(255, 255, 255);
+}

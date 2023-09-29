@@ -1,0 +1,54 @@
+<section class="formulario font-principal">
+    <a routerLink="/planilla" class="flex items-center font-semibold mb-8 bg-red-950 w-fit py-1 px-8 text-white rounded-md transition hover:bg-red-900">
+        <span class="material-symbols-outlined text-white text-2xl mr-2">arrow_back</span>
+        Volver
+    </a>
+    
+    <h2 class="font-bold text-red-950 text-2xl mb-6">Editar candidato</h2>
+    
+    <form (ngSubmit)="onSubmit()" #formEditarCandidato="ngForm" class="flex flex-col gap-3" enctype="multipart/form-data">
+
+        <div class="flex flex-col">
+            <label for="nombreCandidato">Nombre</label>
+            <input type="text" name="nombreCandidato" id="nombreCandidato" [(ngModel)]="candidato.nombre">
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="apellidosCandidato">Apellidos</label>
+            <input type="text" name="apellidosCandidato" id="apellidosCandidato" [(ngModel)]="candidato.apellidos">
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="fechaNacimientoCandidato">Fecha de nacimiento</label>
+            <input type="date" name="fechaNacimientoCandidato" id="fechaNacimientoCandidato" [(ngModel)]="candidato.fechaNacimiento">
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="puestoCandidato">Puesto</label>
+            <select name="puestoCandidato" id="puestoCandidato" class="cursor-pointer" [(ngModel)]="candidato.puesto">
+                <option *ngFor="let puesto of puestos" [value]="puesto">{{ puesto }}</option>
+            </select>
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="localidadCandidato">Localidad</label>
+            <select name="localidadCandidato" id="localidadCandidato" class="cursor-pointer" [(ngModel)]="candidato.localidad">
+                <option *ngFor="let localidad of localidades" [value]="localidad.nombre">{{ localidad.nombre }}</option>
+            </select>
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="sueldoCandidato">Sueldo</label>
+            <input type="text" name="sueldoCandidato" id="sueldoCandidato" [(ngModel)]="candidato.sueldo" (keypress)="numberValidation($event)">
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="imagenCandidato">Imagen</label>
+            <input type="file" accept="image/*" (change)="onFileSelected($event)" name="imagenCandidato" id="imagenCandidato" class="cursor-pointer border-none px-0">
+        </div>
+        
+    
+        <input type="submit" value="Editar candidato" class="cursor-pointer bg-red-950 text-white py-2 border-none">
+    
+    </form>
+</section>

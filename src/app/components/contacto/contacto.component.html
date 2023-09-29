@@ -1,0 +1,39 @@
+<section class="formulario font-principal">
+    <a routerLink="/" class="flex items-center font-semibold mb-8 bg-red-950 w-fit py-1 px-8 text-white rounded-md transition hover:bg-red-900">
+        <span class="material-symbols-outlined text-white text-2xl mr-2">arrow_back</span>
+        Volver
+    </a>
+    
+    <h2 class="font-bold text-red-950 text-2xl mb-6">Contáctanos</h2>
+
+    <form (ngSubmit)="onSubmit()" #formContacto="ngForm" class="flex flex-col gap-3">
+        <div class="flex flex-col">
+            <label for="correo">Direción de correo electrónico</label>
+            <input type="email" name="correo" id="correo" [(ngModel)]="mensajeModel.correo">
+        </div>
+        <div class="flex flex-col">
+            <label for="mensaje">Mensaje</label>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10" class="resize-none" [(ngModel)]="mensajeModel.mensaje"></textarea>
+        </div>
+        
+        <input type="submit" value="Enviar comentario" class="cursor-pointer bg-red-950 text-white py-2 border-none">
+
+        <div *ngIf="mostrarModalExito" id="myModal" class="modal fixed inset-0 z-50 overflow-auto flex justify-center items-center animated fadeIn">
+            <div class="modal-content bg-white p-4 w-1/2 rounded shadow-lg relative">
+                <!-- Encabezado del modal -->
+                <div class="modal-header mb-4">
+                    <span class="material-symbols-outlined text-green-600 text-3xl">check_circle</span>
+                </div>
+        
+                <!-- Contenido del modal -->
+                <div class="modal-body">
+                    <p>Su mensaje se ha enviado con éxito</p>
+                </div>
+        
+                <!-- Acciones del modal -->
+                <div class="modal-actions mt-4 flex justify-end">
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

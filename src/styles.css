@@ -2,18 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-.nav-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 2px; /* Altura de la línea inferior */
-    transform-origin: center;
-    transform: scaleX(0); /* Inicialmente, la línea está oculta */
-    transition: transform 0.3s ease;
+input, select, textarea{
+    border: 2px solid;
+    border-radius: 4px;
+    padding: 5px 10px;
 }
 
-.nav-item:hover::before {
-    transform: scaleX(1); /* Mostrar la línea al hacer hover */
+table{
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+table td{
+    min-width: 150px;
+}
+
+.formulario{
+    max-width: 576px;
+    padding: 28px 32px;
+    margin: 28px auto;
+    border-radius: 8px;
+    border:  2px solid rgb(69 10 10);
 }

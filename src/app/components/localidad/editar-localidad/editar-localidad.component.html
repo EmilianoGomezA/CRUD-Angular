@@ -1,0 +1,31 @@
+<section class="formulario font-principal">
+    <a routerLink="/localidades" class="flex items-center font-semibold mb-8 bg-red-950 w-fit py-1 px-8 text-white rounded-md transition hover:bg-red-900">
+        <span class="material-symbols-outlined text-white text-2xl mr-2">arrow_back</span>
+        Volver
+    </a>
+
+    <h2 class="font-bold text-red-950 text-2xl mb-6">Editar localidad</h2>
+    
+    <form (ngSubmit)="onSubmit()" #formEditarLocalidad="ngForm" class="flex flex-col gap-3">
+        <div class="flex flex-col">
+            <label for="nombreLocalidad">Nombre de la localidad</label>
+            <input type="text" name="nombreLocalidad" id="nombreLocalidad" [(ngModel)]="localidad.nombre">
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="estadoLocalidad">Estado</label>
+            <select name="estadoLocalidad" id="estadoLocalidad" class="cursor-pointer" [(ngModel)]="localidad.estado">
+                <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+            </select>
+        </div>
+    
+        <div class="flex flex-col">
+            <label for="imagenLocalidad">Escudo</label>
+            <input type="file" accept="image/*" (change)="onFileSelected($event)" name="imagenLocalidad" id="imagenLocalidad" class="cursor-pointer border-none px-0">
+        </div>
+        
+    
+        <input type="submit" value="Editar localidad" class="cursor-pointer bg-red-950 text-white py-2 border-none">
+    
+    </form>
+</section>

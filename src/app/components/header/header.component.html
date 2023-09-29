@@ -1,0 +1,36 @@
+<header class="flex flex-col font-principal">
+    <div class="mb-4 bg-red-950 text-white p-3">
+        <h1 class="font-principal font-black  text-5xl my-0 ml-4 h-fit">softwena</h1>
+        <p class="font-principal font-bold h-fit ml-8">La esperanza del pueblo</p>
+    </div>
+    <nav>
+        <ul class="border-b-2 border-gray-300">
+            <div class="w-full flex overflow-auto gap-1 xl:gap-4 xl:text-xl">
+                <li>
+                    <a routerLink="/" class="nav-item active ml-4 relative flex items-center h-8 font-normal p-2 hover:before:bg-red-950 rounded-tr-md rounded-tl-md lg:p-4 xl:p-6" (click)="setActiveLink(0)" [ngClass]="{'active': activeLink === 0}">
+                    <span class="material-symbols-outlined mr-1 text-red-950">home</span>
+                    Home
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/planilla" class="nav-item relative flex items-center h-8 font-normal px-2 py-2 hover:before:bg-red-950 rounded-tr-md rounded-tl-md lg:p-4 xl:p-6" (click)="setActiveLink(1)" [ngClass]="{'active': activeLink === 1}">
+                    <span class="material-symbols-outlined mr-1 text-red-950">groups</span>
+                    Planilla
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/localidades" class="nav-item relative flex items-center h-8 font-normal px-2 py-2 hover:before:bg-red-950 rounded-tr-md rounded-tl-md lg:p-4 xl:p-6" (click)="setActiveLink(2)" [ngClass]="{'active': activeLink === 2}">
+                    <span class="material-symbols-outlined mr-1 text-red-950">location_on</span>
+                    Localidades
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/contacto" class="nav-item relative flex items-center h-8 font-normal px-2 py-2 hover:before:bg-red-950 rounded-tr-md rounded-tl-md lg:p-4 xl:p-6" (click)="setActiveLink(3)" [ngClass]="{'active': activeLink === 3}">
+                    <span class="material-symbols-outlined mr-1 text-red-950">mail</span>
+                    Contacto
+                    </a>
+                </li>
+            </div>
+        </ul>
+    </nav>
+</header>
